@@ -58,7 +58,7 @@
             this.Tablero.RowHeadersVisible = false;
             this.Tablero.RowHeadersWidth = 51;
             this.Tablero.RowTemplate.Height = 24;
-            this.Tablero.Size = new System.Drawing.Size(622, 449);
+            this.Tablero.Size = new System.Drawing.Size(615, 449);
             this.Tablero.TabIndex = 0;
             // 
             // button1
@@ -133,7 +133,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.Tablero);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "SNAKE";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.Tablero)).EndInit();
             this.ResumeLayout(false);

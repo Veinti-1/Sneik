@@ -35,7 +35,7 @@ namespace Sneik3
                 DataGridViewRow fila = Tablero.Rows[i];
                 fila.Height = (int)(Tablero.Height / Tablero.RowCount);
             }
-
+            Tablero.ClearSelection();
             Segmento cabeza = new Segmento
             {
                 x = rnd.Next(0, n),
@@ -241,37 +241,62 @@ namespace Sneik3
             switch (e.KeyCode)
             {
                 case Keys.Left:
-                    Izq();
+                    if (direccion != 4)
+                    {
+                        Izq();
+                    }
                     break;
                 case Keys.Up:
-                    Arriba();
+                    if (direccion != 1)
+                    {
+                        Arriba();
+                    }
                     break;
                 case Keys.Right:
-                    Der();
+                    if (direccion != 2)
+                    {
+                        Der();
+                    }
                     break;
                 case Keys.Down:
-                    Abajo();
+                    if (direccion != 3)
+                    {
+                        Abajo();
+                    }
                     break;
                 case Keys.A:
-                    Izq();
+                    if (direccion != 4)
+                    {
+                        Izq();
+                    }
                     break;
                 case Keys.D:
-                    Der();
+                    if (direccion != 2)
+                    {
+                        Der();
+                    }
                     break;
                 case Keys.S:
-                    Abajo();
+                    if (direccion != 3)
+                    {
+                        Abajo();
+                    }
                     break;
                 case Keys.W:
-                    Arriba();
+                    if (direccion != 1)
+                    {
+                        Arriba();
+                    }
                     break;
             }
         }
         private void button2_Click(object sender, EventArgs e)
         {
             finalScore = Convert.ToInt32(Score.Text);
-            this.Hide();
-            Form2 f2 = new Form2();
-            f2.Show();
+            Hide();
+            var form2 = new Form2();
+            form2.Closed += (s, args) => Close();
+            form2.Show();
         }
     }
 }

@@ -50,8 +50,9 @@ namespace Sneik3
         private void button2_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Form1 f1 = new Form1();
-            f1.Show();
+            var form1 = new Form1();
+            form1.Closed += (s, args) => Close();
+            form1.Show();
         }
     }
 }

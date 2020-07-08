@@ -60,7 +60,7 @@ namespace Sneik3
 
                 if (Serpiente.First.Value.y - 1 < 0)
                 {
-                    Serpiente.First.Value.y = 23;
+                    Serpiente.First.Value.y = n-1;
                     Serpiente.First.Value.yA = 0;
                 }
                 else
@@ -83,7 +83,7 @@ namespace Sneik3
                 if (Serpiente.First.Value.y + 1 == n)
                 {
                     Serpiente.First.Value.y = 0;
-                    Serpiente.First.Value.yA = 23;
+                    Serpiente.First.Value.yA = n-1;
                 }
                 else
                 {
@@ -105,7 +105,7 @@ namespace Sneik3
                 if (Serpiente.First.Value.x + 1 == n)
                 {
                     Serpiente.First.Value.x = 0;
-                    Serpiente.First.Value.xA = 23;
+                    Serpiente.First.Value.xA = n-1;
                 }
                 else
                 {
@@ -126,7 +126,7 @@ namespace Sneik3
 
                 if (Serpiente.First.Value.x - 1 < 0)
                 {
-                    Serpiente.First.Value.x = 23;
+                    Serpiente.First.Value.x = n-1;
                     Serpiente.First.Value.xA = 0;
                 }
                 else

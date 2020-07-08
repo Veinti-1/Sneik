@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Linq;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace Sneik3
@@ -15,16 +15,19 @@ namespace Sneik3
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.Height = 452;
+            this.Height = 615;
             var lista = jsonWL.LoadJson();
             Jugador nuevoJ = new Jugador
             {
                 name = textBox1.Text,
                 score = Form1.finalScore
             };
-            if (lista.Count >= 10 && nuevoJ.score > lista[9].score)
+            if (lista.Count >= 10)
             {
-                lista[9] = nuevoJ;
+                if (nuevoJ.score > lista[9].score)
+                {
+                    lista[9] = nuevoJ;
+                }
             }
             else
             {
@@ -42,17 +45,23 @@ namespace Sneik3
             int i = 1;
             foreach (var item in lista)
             {
-                label4.Text += i+ ") "+ item.name + " : " + item.score + "\n";
+                label4.Text += i + ") " + item.name + " : " + item.score + "\n";
                 i++;
             }
         }
-
         private void button2_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            Hide();
             var form1 = new Form1();
             form1.Closed += (s, args) => Close();
             form1.Show();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            List<Jugador> lista = new List<Jugador>();
+            jsonWL.WriteJson(lista);
+            label4.Text = "HIGH SCORES: \n \n";
         }
     }
 }

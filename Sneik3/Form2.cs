@@ -15,7 +15,7 @@ namespace Sneik3
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.Height = 575;
+            Height = 575;
             var lista = jsonWL.LoadJson();
             Jugador nuevoJ = new Jugador
             {
@@ -25,14 +25,11 @@ namespace Sneik3
             if (lista.Count >= 10)
             {
                 if (nuevoJ.score > lista[9].score)
-                {
                     lista[9] = nuevoJ;
-                }
             }
             else
-            {
                 lista.Add(nuevoJ);
-            }
+
             lista.Sort();
             jsonWL.WriteJson(lista);
             label4.Text = "HIGH SCORES: \n \n";

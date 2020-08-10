@@ -15,7 +15,7 @@ namespace Sneik3
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.Height = 615;
+            this.Height = 575;
             var lista = jsonWL.LoadJson();
             Jugador nuevoJ = new Jugador
             {

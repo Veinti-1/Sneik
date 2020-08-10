@@ -10,7 +10,6 @@ namespace Sneik3
     {
         public int x { get; set; }
         public int y { get; set; }
-
         public int xA { get; set; }
         public int yA { get; set; }
 

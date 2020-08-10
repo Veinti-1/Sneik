@@ -25,13 +25,10 @@ namespace Sneik3
         {
             Tablero.RowCount = n;
             Tablero.ColumnCount = n;
-            for (int i = 0; i < Tablero.ColumnCount; i++)
+            for (int i = 0; i < n; i++)
             {
                 DataGridViewColumn columna = Tablero.Columns[i];
                 columna.Width = (int)(Tablero.Width / Tablero.ColumnCount);
-            }
-            for (int i = 0; i < Tablero.RowCount; i++)
-            {
                 DataGridViewRow fila = Tablero.Rows[i];
                 fila.Height = (int)(Tablero.Height / Tablero.RowCount);
             }
@@ -60,7 +57,7 @@ namespace Sneik3
 
                 if (Serpiente.First.Value.y - 1 < 0)
                 {
-                    Serpiente.First.Value.y = n-1;
+                    Serpiente.First.Value.y = n - 1;
                     Serpiente.First.Value.yA = 0;
                 }
                 else
@@ -83,7 +80,7 @@ namespace Sneik3
                 if (Serpiente.First.Value.y + 1 == n)
                 {
                     Serpiente.First.Value.y = 0;
-                    Serpiente.First.Value.yA = n-1;
+                    Serpiente.First.Value.yA = n - 1;
                 }
                 else
                 {
@@ -105,7 +102,7 @@ namespace Sneik3
                 if (Serpiente.First.Value.x + 1 == n)
                 {
                     Serpiente.First.Value.x = 0;
-                    Serpiente.First.Value.xA = n-1;
+                    Serpiente.First.Value.xA = n - 1;
                 }
                 else
                 {
@@ -126,7 +123,7 @@ namespace Sneik3
 
                 if (Serpiente.First.Value.x - 1 < 0)
                 {
-                    Serpiente.First.Value.x = n-1;
+                    Serpiente.First.Value.x = n - 1;
                     Serpiente.First.Value.xA = 0;
                 }
                 else
@@ -175,9 +172,7 @@ namespace Sneik3
                 Comida();
                 nuevoJugador.score += 100;
                 if ((timer1.Interval - nuevoJugador.score / 100) > 0)
-                {
                     timer1.Interval -= nuevoJugador.score / 100;
-                }
             }
             return x;
         }
@@ -193,22 +188,15 @@ namespace Sneik3
                     button2.Visible = true;
                     return true;
                 }
-                else
-                {
-                    if (item.Equals(Serpiente.First.Value))
-                    {
-                        i++;
-                    }
-                }
+                else if (item.Equals(Serpiente.First.Value))
+                    i++;
             }
             return false;
         }
         private void SerpienteUpdate()
         {
             if (!CheckF())
-            {
                 actualizar();
-            }
             CheckS();
 
             foreach (var item in Serpiente)
@@ -242,51 +230,35 @@ namespace Sneik3
             {
                 case Keys.Left:
                     if (direccion != 4)
-                    {
                         Izq();
-                    }
                     break;
                 case Keys.Up:
                     if (direccion != 1)
-                    {
                         Arriba();
-                    }
                     break;
                 case Keys.Right:
                     if (direccion != 2)
-                    {
                         Der();
-                    }
                     break;
                 case Keys.Down:
                     if (direccion != 3)
-                    {
                         Abajo();
-                    }
                     break;
                 case Keys.A:
                     if (direccion != 4)
-                    {
                         Izq();
-                    }
                     break;
                 case Keys.D:
                     if (direccion != 2)
-                    {
                         Der();
-                    }
                     break;
                 case Keys.S:
                     if (direccion != 3)
-                    {
                         Abajo();
-                    }
                     break;
                 case Keys.W:
                     if (direccion != 1)
-                    {
                         Arriba();
-                    }
                     break;
             }
         }
